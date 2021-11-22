@@ -1,18 +1,22 @@
 package ru.netology.delivery;
 
 import org.junit.jupiter.api.Test;
+
 import java.time.Duration;
 
 import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
+import com.codeborne.selenide.Configuration;
 
 public class CardDeliveryTest {
 
     @Test
     void shouldRegisterCardDelivery() {
 
+        Configuration.headless = true;
 
         open("http://localhost:9999");
         $("[data-test-id='city'] [class='input__control']").sendKeys("Вологда"); // город
@@ -23,7 +27,5 @@ public class CardDeliveryTest {
         $("[class='button__content']").click(); // отправка формы
         $("[data-test-id='notification'] [class='notification__title']")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
-
-
     }
 }
