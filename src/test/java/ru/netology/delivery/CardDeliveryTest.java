@@ -20,7 +20,7 @@ public class CardDeliveryTest {
     @Test
     void shouldRegisterCardDelivery() {
 
-        // Configuration.headless = true;
+        Configuration.headless = true;
 
         LocalDate date = LocalDate.now();
         date = date.plusDays(3);
